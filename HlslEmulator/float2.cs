@@ -26,6 +26,14 @@
 
         public float x { get { return base[0]; } }
         public float y { get { return base[1]; } }
+        public static float2 operator +(float2 v1, float2 v2)
+        {
+            return new float2(v1.Add(v2));
+        }
+        public static float2 operator -(float2 v1, float2 v2)
+        {
+            return new float2(v1.Subtract(v2));
+        }
         public override Matrix<float> CreateMatrix(int rows, int columns)
         {
             throw new System.NotImplementedException();
@@ -33,7 +41,7 @@
 
         public override Vector<float> CreateVector(int size)
         {
-            throw new System.NotImplementedException();
+            return new float2(0, 0);
         }
     }
     // ReSharper restore InconsistentNaming

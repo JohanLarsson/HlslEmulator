@@ -31,11 +31,11 @@
         public float g { get { return base[1]; } private set { base[1] = value; } }
         public float b { get { return base[1]; } private set { base[1] = value; } }
         public float a { get { return base[1]; } private set { base[1] = value; } }
+        public float3 rgb { get{return new float3(r,g,b);} }
         public override Matrix<float> CreateMatrix(int rows, int columns)
         {
             throw new System.NotImplementedException();
         }
-
         public override Vector<float> CreateVector(int size)
         {
             throw new System.NotImplementedException();

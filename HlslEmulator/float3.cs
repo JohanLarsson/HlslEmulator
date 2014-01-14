@@ -1,6 +1,9 @@
 ﻿namespace HlslEmulator
 {
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
     using MathNet.Numerics.LinearAlgebra.Generic;
     using MathNet.Numerics.LinearAlgebra.Single;
 
@@ -23,6 +26,10 @@
             this.r = v[0];
             this.g = v[1];
             this.b = v[2];
+        }
+        public float3(IEnumerable<float> v)
+            : this(OfEnumerable(v))
+        {
         }
 
         public float r { get { return base[0]; } private set { base[0] = value; } }

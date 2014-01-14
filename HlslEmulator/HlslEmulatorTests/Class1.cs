@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace HlslEmulatorTests
 {
+    using HlslEmulator;
+    using NUnit.Framework;
+
     public class Class1
     {
+        [Test]
+        public void AngleToTest()
+        {
+            var gradient = new AngularGradient();
+            gradient.
+        }
     }
 }
