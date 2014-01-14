@@ -3,13 +3,18 @@
     using System;
     using System.ComponentModel.Design;
     using System.Security.Cryptography.X509Certificates;
+    using MathNet.Numerics.LinearAlgebra.Single;
 
     // ReSharper disable InconsistentNaming
     public class EmulatorBase
     {
-        protected static float dot(float2 v1, float2 v2)
+        protected static float dot(DenseVector v1, DenseVector v2)
         {
             return v1.DotProduct(v2);
+        }
+        protected static float2 cross(float2 v1, float2 v2)
+        {
+            return v1.(v2);
         }
 
         protected static float2 float2(float x, float y)
@@ -37,12 +42,15 @@
             return (float)Math.Cos(angle);
         }
 
+        protected static float acos(float f)
+        {
+            return (float)Math.Acos(f);
+        }
+
         protected static float2 normalize(float2 x)
         {
             return new float2( x.Normalize(2.0));
         }
-
-
     }
 
     // ReSharper restore InconsistentNaming

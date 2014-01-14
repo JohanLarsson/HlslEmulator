@@ -5,7 +5,7 @@
     using MathNet.Numerics.LinearAlgebra.Single;
     using MathNet.Numerics.LinearAlgebra.Storage;
 
-// ReSharper disable InconsistentNaming
+    // ReSharper disable InconsistentNaming
     public class float2 : DenseVector
     {
         public float2(float x, float y)
@@ -15,16 +15,16 @@
             base[1] = y;
         }
 
-        public float2(Vector<float> normalize) 
+        public float2(Vector<float> normalize)
             : base(2)
         {
-           if(normalize.Count!=2)
-               throw new ArgumentException();
-           base[0] = normalize[0];
-           base[1] = normalize[1];
+            if (normalize.Count != 2)
+                throw new ArgumentException();
+            base[0] = normalize[0];
+            base[1] = normalize[1];
         }
 
-        public float x { get { return base[0]; }}
+        public float x { get { return base[0]; } }
         public float y { get { return base[1]; } }
         public override Matrix<float> CreateMatrix(int rows, int columns)
         {

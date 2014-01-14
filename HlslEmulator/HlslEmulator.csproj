@@ -50,10 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Emulator.cs" />
+    <Compile Include="AngularGradient.cs" />
     <Compile Include="EmulatorBase.cs" />
     <Compile Include="float2.cs" />
     <Compile Include="float2x2.cs" />
+    <Compile Include="float3.cs" />
+    <Compile Include="float4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
