@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.Design;
     using System.Security.Cryptography.X509Certificates;
+    using MathNet.Numerics.LinearAlgebra.Generic;
     using MathNet.Numerics.LinearAlgebra.Single;
     using NUnit.Framework;
 
@@ -13,6 +14,34 @@
         protected static float4 tex2D(float4 inputSampler, float2 uv)
         {
             return inputSampler;
+        }
+        protected static float2 mul(float2 v, float f)
+        {
+            return new float2(v.Multiply(f));
+        }
+        protected static float2 mul(float f, float2 v)
+        {
+            return new float2(v.Multiply(f));
+        }
+        protected static float3 mul(float3 v, float f)
+        {
+            return new float3(v.Multiply(f));
+        }
+        protected static float3 mul(float f, float3 v)
+        {
+            return new float3(v.Multiply(f));
+        }
+        protected static float4 mul(float4 v, float f)
+        {
+            return new float4(v.Multiply(f));
+        }
+        protected static float4 mul(float f, float4 v)
+        {
+            return new float4(v.Multiply(f));
+        }
+        protected static float2 mul(float2 v, float2x2 m)
+        {
+            return new float2(m.Multiply(v));
         }
         protected static float3 lerp(float3 rgb1, float3 rgb2, float f)
         {
@@ -31,7 +60,7 @@
                 f = 0;
             return f1 + f * (f2 - f1);
         }
-        protected static float Pi { get { return (float)Math.PI; } }
+        //protected static float Pi { get { return (float)Math.PI; } }
         protected static float abs(float f)
         {
             return Math.Abs(f);
@@ -48,6 +77,11 @@
         {
             return v1.DotProduct(v2);
         }
+        protected static float distance(DenseVector p1, DenseVector p2)
+        {
+            Vector<float> v = p1-p2;
+            return length(v);
+        }
         protected static float2 float2(double x, double y)
         {
             return new float2((float)x, (float)y);
@@ -60,7 +94,7 @@
         {
             return new float4(rgb.r, rgb.g, rgb.b, a);
         }
-        protected static float4 float4(float r, float g, float b, float a)
+        protected static float4 float4(double r, double g, double b, double a)
         {
             return new float4(r, g, b, a);
         }
@@ -68,9 +102,10 @@
         {
             return new float2x2(r0c0, r0c1, r1c0, r1c1);
         }
-        protected static float atan2(float x, float y)
+        protected static float atan2(float y, float x)
         {
-            return (float)Math.Atan2(x, y);
+            double d = Math.Atan2(y, x);
+            return (float)d;
         }
         protected static float sin(float angle)
         {
@@ -88,7 +123,7 @@
         {
             return new float2(x.Normalize(2.0));
         }
-        protected static float length(DenseVector v1)
+        protected static float length(Vector<float> v1)
         {
             return v1.Norm(2);
         }

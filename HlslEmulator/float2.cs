@@ -15,13 +15,13 @@
             base[1] = y;
         }
 
-        public float2(Vector<float> normalize)
+        public float2(Vector<float> v)
             : base(2)
         {
-            if (normalize.Count != 2)
+            if (v.Count != 2)
                 throw new ArgumentException();
-            base[0] = normalize[0];
-            base[1] = normalize[1];
+            base[0] = v[0];
+            base[1] = v[1];
         }
 
         public float x { get { return base[0]; } }
@@ -38,10 +38,9 @@
         {
             throw new System.NotImplementedException();
         }
-
         public override Vector<float> CreateVector(int size)
         {
-            return new float2(0, 0);
+            return new float2(1, 2);
         }
     }
     // ReSharper restore InconsistentNaming
